@@ -1,6 +1,6 @@
 # BinarySerializer_v5
 
-New do not optimized on current time, version binary structure builder based on .IL NET (GrEmit)
+New do not optimized on current time, version binary structure builder based on .IL NET (GrEmit) and NET Core 2.0
 
 ### On now support
 ###### Basic C types (int, float, etc...)
@@ -34,6 +34,43 @@ For types not contains pre size header, builder have fixed size or "name propert
 ### Performance
 
 At now serializer can write ~x2.5 slower then with binary writer, and can read ~x2 faster read then with binary reader
+
+### Working
+
+For comfortable programming, text encoding is set in TypeStorage, we can using TypeStorage.Instance or create new sample TypeStorage for separate coding, or structs group
+
+For create custom type you must override IBasicType interface, and use your type like the other default types
+
+Type must have constructor with no parameters, public or protected access modificator
+
+### Sample
+
+    public class Sample
+    {
+      [Binary(typeof(BinaryList16<BinaryString16>))]
+      [BinaryScheme("default")]
+      public List<string> names { get;set;}
+    } 
+
+    Sample s = new Sample()
+    {
+        names = new List<string>()
+        {
+        "Tom",
+        "Anna",
+        "R2D2"
+      }
+    };
+
+    BinarySerializer bs = new BinarySerializer(); // have constructor with parameter TypeStorage
+
+    byte[] buffer = bs.Serialize("default", s):
+
+    int offset = 0;
+
+    Sample sresult = bs.Deserialize<Sample>("default", buffer, out offset); // last parameter if you need set and get offset
+
+
 
 ### BinarySchemeAttribute
 

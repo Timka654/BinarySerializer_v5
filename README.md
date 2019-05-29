@@ -2,6 +2,8 @@
 
 New do not optimized on current time, version binary structure builder based on .IL NET (GrEmit) and NET Core 2.0
 
+**Important** - this project written for myself, and if you use him, then you use him at one's own risk
+
 ### On now support
 ###### Basic C types (int, float, etc...)
 ###### String type

@@ -54,8 +54,8 @@ Type must have constructor with no parameters, public or protected access modifi
 
     Sample s = new Sample()
     {
-        names = new List<string>()
-        {
+      names = new List<string>()
+      {
         "Tom",
         "Anna",
         "R2D2"
@@ -70,7 +70,19 @@ Type must have constructor with no parameters, public or protected access modifi
 
     Sample sresult = bs.Deserialize<Sample>("default", buffer, out offset); // last parameter if you need set and get offset
 
+### BinaryAttribute
 
+basic attribute for set type, and size for types how need this, you can use default type or you types overrided IBaseType, or class type which the included to data
+
+type - required parameter
+
+TypeSize - no required parameter, used for type BinaryString and other like him (need the size) for read and write required size
+
+TypeSizeName - no required parameter, used for type BinaryString other and like him (need the size) for read property value for read and write required size
+
+ArraySize - no required parameter, used for type BinaryList and other like him (need the array size) for read and write required element count
+
+ArraySizeName - no required parameter, used for type BinaryString and other like him (need the array size) for read property value and read and write required element count
 
 ### BinarySchemeAttribute
 

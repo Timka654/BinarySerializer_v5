@@ -74,29 +74,29 @@ Type must have constructor with no parameters, public or protected access modifi
 
 basic attribute for set type, and size for types how need this, you can use default type or you types overrided IBaseType, or class type which the included to data
 
-type - required parameter
+**type** - required parameter
 
-TypeSize - no required parameter, used for type BinaryString and other like him (need the size) for read and write required size
+**TypeSize** - no required parameter, used for type BinaryString and other like him (need the size) for read and write required size
 
-TypeSizeName - no required parameter, used for type BinaryString other and like him (need the size) for read property value for read and write required size
+**TypeSizeName** - no required parameter, used for type BinaryString other and like him (need the size) for read property value for read and write required size
 
-ArraySize - no required parameter, used for type BinaryList and other like him (need the array size) for read and write required element count
+**ArraySize** - no required parameter, used for type BinaryList and other like him (need the array size) for read and write required element count
 
-ArraySizeName - no required parameter, used for type BinaryString and other like him (need the array size) for read property value and read and write required element count
+**ArraySizeName** - no required parameter, used for type BinaryString and other like him (need the array size) for read property value and read and write required element count
 
 ### BinarySchemeAttribute
 
 must used for propertyes set scheme, on propertyes which included in scheme name
 
-BinarySchemeAttribute can set one time for property, and sets serialize type, and optional size propertyes for types how need this
+**BinarySchemeAttribute** can set one time for property, and sets serialize type, and optional size propertyes for types how need this
 
 ### BinaryPreCompileAttribute
 
 must used for classes we needed precompiled
 
-BinaryPreCompileAttribute can set many time for class, need for pre compile struct for many schemes, and can set pre init buffer size
+**BinaryPreCompileAttribute** can set many time for class, need for pre compile struct for many schemes, and can set pre init buffer size
 
-TypeStorage have function PreCompileBinaryStructs, working with Assembly.GetExecutingAssembly() you can compille all structs in current assembly
+**TypeStorage** have function PreCompileBinaryStructs, working with Assembly.GetExecutingAssembly() you can compille all structs in current assembly
 
 ### At now 
 

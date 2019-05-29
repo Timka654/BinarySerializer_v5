@@ -1,0 +1,6 @@
+/BinarySerializer/.vs/
+/BinarySerializer/bin/
+/BinarySerializer/obj/Debug/
+/BinarySerializer/obj/
+*.sln
+/BinarySerializerTest/obj

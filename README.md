@@ -74,7 +74,7 @@ Type must have constructor with no parameters, public or protected access modifi
 
 ### BinaryAttribute
 
-basic attribute for set type, and size for types how need this, you can use default type or you types overrided IBaseType, or class type which the included to data
+basic attribute for set type, and size for types how need this, you can use default type or you types overrided IBaseType, or class type which the included to data, can set one time for property
 
 **type** - required parameter
 
@@ -90,7 +90,7 @@ basic attribute for set type, and size for types how need this, you can use defa
 
 must used for propertyes set scheme, on propertyes which included in scheme name
 
-**BinarySchemeAttribute** can set one time for property, and sets serialize type, and optional size propertyes for types how need this
+**BinarySchemeAttribute** can set many time for property, and sets serialize type, and optional size propertyes for types how need this
 
 ### BinaryPreCompileAttribute
 

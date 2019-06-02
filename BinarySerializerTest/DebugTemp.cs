@@ -10,25 +10,16 @@ namespace BinarySerializer_v5.Test
 {
     public class DebugTemp
     {
-
-        public class RecurciveError
-        {
-            [Binary(typeof(BinaryInt32))]
-            [BinaryScheme("default")]
-            public int q { get; set; } = 12;
-
-
-            [Binary(typeof(BinaryList16<tempStruct>))]
-            [BinaryScheme("default")]
-            public List<tempStruct> t { get; set; }
-        }
-
         public class tempStruct
         {
 
-            [Binary(typeof(BinaryInt32))]
+            [Binary(typeof(BinaryNullable<BinaryInt32,int>))]
             [BinaryScheme("default")]
-            public int q { get; set; } = 22;
+            public int? q { get; set; }
+
+            [Binary(typeof(BinaryNullable<BinaryInt32,int>))]
+            [BinaryScheme("default")]
+            public int? q2 { get; set; }
         }
 
         public class TStruct
@@ -36,17 +27,17 @@ namespace BinarySerializer_v5.Test
             public static void Debug()
             {
 
-                RecurciveError r = new RecurciveError();
-                r.t = new List<tempStruct>();
-                for (int i = 0; i < 5; i++)
-                {
-                    r.t.Add(new tempStruct());
-                }
+                tempStruct r = new tempStruct();
+
+                r.q2 = 13;
 
 
                 BinarySerializer.BinarySerializer bs = new BinarySerializer.BinarySerializer();
 
                 var buf3 = bs.Serialize("default", r);
+
+
+               var r1 = bs.Deserialize<tempStruct>("default", buf3);
 
             }
         }

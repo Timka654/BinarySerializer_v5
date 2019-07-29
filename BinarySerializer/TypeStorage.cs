@@ -1,4 +1,5 @@
-﻿using BinarySerializer.DefaultTypes;
+﻿using BinarySerializer.Builder;
+using BinarySerializer.DefaultTypes;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -48,7 +49,22 @@ namespace BinarySerializer
             return TypeCacheMap[type][""];
         }
 
-        private void LoadType(Type type, int initialSize )
+        internal BinaryStruct AppendPreCompile(StructBuilder builder)
+        {
+            if (!TypeCacheMap.ContainsKey(builder.CurrentType))
+            {
+                TypeCacheMap.TryAdd(builder.CurrentType, new ConcurrentDictionary<string, BinaryStruct>());
+            }
+            else
+            {
+                TypeCacheMap[builder.CurrentType].Clear();
+            }
+            TypeCacheMap[builder.CurrentType].TryAdd("", builder.CurrentStruct);
+
+            return builder.CurrentStruct;
+        }
+
+        private void LoadType(Type type, int initialSize)
         {
             List<PropertyData> t = GetProperties(type);
             var s = new BinaryStruct(type, "", t.ToList(), Coding, this);

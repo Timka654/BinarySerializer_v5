@@ -4,3 +4,4 @@
 /BinarySerializer/obj/
 *.sln
 /BinarySerializerTest/obj
+/.vs/
